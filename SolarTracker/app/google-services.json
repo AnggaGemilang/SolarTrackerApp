@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "434093527275",
+    "firebase_url": "https://solar-tracker-b5cad-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "solar-tracker-b5cad",
+    "storage_bucket": "solar-tracker-b5cad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:434093527275:android:adc06809a1f73666deeeae",
+        "android_client_info": {
+          "package_name": "com.example.solartracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "434093527275-n5f5kheneouth1rc4k2kaao8agnijc8r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJCu6OP3NU6U75x6fE-vOD4zqFm8n5pZY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "434093527275-n5f5kheneouth1rc4k2kaao8agnijc8r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
