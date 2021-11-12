@@ -42,7 +42,7 @@ class SplashScreenActivity : AppCompatActivity() {
                 }
             }
             Handler(Looper.getMainLooper()).post {
-                startActivity(Intent(this, LoginActivity::class.java))
+                startActivity(Intent(this, OnboardingActivity::class.java))
             }
         }.start()
     }

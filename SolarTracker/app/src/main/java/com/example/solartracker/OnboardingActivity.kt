@@ -30,8 +30,8 @@ class OnboardingActivity : AppCompatActivity() {
         prev = findViewById(R.id.prev)
 
         val onboardingData: MutableList<OnboardingData> = ArrayList()
-        onboardingData.add(OnboardingData("Monitoring Easily", "Dengan produk ini, kita dapat memantau kinerja dari solar tracker yang kita miliki", R.drawable.onboarding_asset1))
         onboardingData.add(OnboardingData("User Friendly", "Saking mudahnya aplikasi ini dapat digunakan oleh bayi", R.drawable.onboarding_asset1))
+        onboardingData.add(OnboardingData("Monitoring Easily", "Dengan produk ini, kita dapat memantau kinerja dari solar tracker yang kita miliki", R.drawable.onboarding_asset1))
         onboardingData.add(OnboardingData("High Quality", "Produk ini sudah berkualitas SNI (Standar Negara Indonesia)", R.drawable.onboarding_asset1))
         setOnBoardingViewPagerAdapter(onboardingData)
 

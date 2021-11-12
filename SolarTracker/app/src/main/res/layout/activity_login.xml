@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -26,38 +27,73 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="10pt"
+            android:textSize="14pt"
             android:textStyle="bold"
             android:text="Solar Tracker." />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            app:boxStrokeColor="@color/white"
+            app:hintTextColor="@color/white"
+            app:hintTextAppearance="@style/TextAppearance.AppCompat"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:drawablePadding="17dp"
                 android:hint="Masukkan Email" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginTop="20dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxStrokeColor="@color/white"
+            app:hintTextColor="@color/white"
+            app:hintTextAppearance="@style/TextAppearance.AppCompat"
             android:layout_width="match_parent"
+            app:passwordToggleEnabled="true"
             android:layout_height="wrap_content" >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Masukkan Password" />
+                android:inputType="textPassword"
+                android:hint="Masukkan Password"
+                android:drawablePadding="17dp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/blue"
+            android:layout_marginTop="30dp"
             android:background="@drawable/rounded_button"
-            android:text="Login" />
+            android:text="Sign In" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Don't Have Account? " />
+
+            <TextView
+                android:id="@+id/signup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="Sign Up" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
