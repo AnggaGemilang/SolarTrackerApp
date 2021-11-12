@@ -17,7 +17,8 @@
             android:theme="@style/Theme.SolarTracker">
 
         </activity>
-        <activity android:name=".OnboardingActivity" >
+        <activity android:name=".OnboardingActivity"
+            android:noHistory="true" >
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

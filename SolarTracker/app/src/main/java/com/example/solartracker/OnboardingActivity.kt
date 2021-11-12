@@ -1,7 +1,10 @@
 package com.example.solartracker
 
+import android.content.Intent
+import android.content.res.ColorStateList
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.widget.ViewPager2
@@ -27,21 +30,23 @@ class OnboardingActivity : AppCompatActivity() {
         prev = findViewById(R.id.prev)
 
         val onboardingData: MutableList<OnboardingData> = ArrayList()
-        onboardingData.add(OnboardingData("asdasd", "asdasd", R.drawable.onboarding_asset1))
-        onboardingData.add(OnboardingData("dfgdgdfgdfg", "dgdgdfgdfgdfg", R.drawable.onboarding_asset1))
+        onboardingData.add(OnboardingData("Monitoring Easily", "Dengan produk ini, kita dapat memantau kinerja dari solar tracker yang kita miliki", R.drawable.onboarding_asset1))
+        onboardingData.add(OnboardingData("User Friendly", "Saking mudahnya aplikasi ini dapat digunakan oleh bayi", R.drawable.onboarding_asset1))
+        onboardingData.add(OnboardingData("High Quality", "Produk ini sudah berkualitas SNI (Standar Negara Indonesia)", R.drawable.onboarding_asset1))
         setOnBoardingViewPagerAdapter(onboardingData)
 
         next?.setOnClickListener {
-            if(position < onboardingData.size){
+            if(position < onboardingData.size-1){
                 position++
+                onBoardingViewPager!!.currentItem = position
             } else {
-                position = 0
+                Log.d("Testing", "asdasd")
+                startActivity(Intent(this, LoginActivity::class.java))
             }
-            onBoardingViewPager!!.currentItem = position
         }
 
         prev?.setOnClickListener {
-            if(position > onboardingData.size){
+            if(position > 0){
                 position--
             } else {
                 position = onboardingData.size-1
@@ -54,8 +59,10 @@ class OnboardingActivity : AppCompatActivity() {
                 position = tab!!.position
                 if(tab.position == onboardingData.size - 1){
                     next!!.text = "Get Started"
+                    next!!.backgroundTintList = ColorStateList.valueOf(resources.getColor(R.color.blue));
                 } else {
                     next!!.text = "Next"
+                    next!!.backgroundTintList = ColorStateList.valueOf(resources.getColor(R.color.black_750));
                 }
             }
 
