@@ -1,15 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/btnLogout"
+    <FrameLayout
+        android:id="@+id/frame_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Logout" />
+        android:layout_height="match_parent" />
 
-</LinearLayout>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_margin="20dp"
+        app:menu="@menu/item_menu_navbar"
+        app:itemRippleColor="@color/black_500"
+        app:itemIconSize="25dp"
+        app:itemTextAppearanceActive="@color/yellow"
+        android:backgroundTint="@color/black_750"
+        app:labelVisibilityMode="labeled"
+        app:itemTextColor="@drawable/navbar_selector"
+        app:itemIconTint="@drawable/navbar_selector"
+        android:background="@drawable/rounded_corner"
+        android:layout_alignParentBottom="true" />
+
+</RelativeLayout>

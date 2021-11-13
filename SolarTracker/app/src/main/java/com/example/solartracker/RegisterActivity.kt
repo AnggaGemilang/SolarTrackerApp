@@ -1,15 +1,14 @@
 package com.example.solartracker
 
+import android.app.AlertDialog
 import android.app.ProgressDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Patterns
-import android.widget.TextView
 import android.widget.Toast
 import com.example.solartracker.data.UserData
-import com.example.solartracker.databinding.ActivityOnboardingBinding
 import com.example.solartracker.databinding.ActivityRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
@@ -18,11 +17,8 @@ import com.google.firebase.database.FirebaseDatabase
 class RegisterActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterBinding
-
     private lateinit var progressDialog: ProgressDialog
-
     private lateinit var firebaseAuth: FirebaseAuth
-
     private lateinit var firebaseRef : DatabaseReference
 
     private var email: String = ""
@@ -35,7 +31,7 @@ class RegisterActivity : AppCompatActivity() {
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        progressDialog = ProgressDialog(this)
+        progressDialog = ProgressDialog(this, R.style.MyAlertDialogStyle)
         progressDialog.setTitle("Please Wait")
         progressDialog.setMessage("Creating Account...")
         progressDialog.setCanceledOnTouchOutside(false)
@@ -45,9 +41,7 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         firebaseAuth = FirebaseAuth.getInstance()
-
         firebaseRef = FirebaseDatabase.getInstance().getReference("USERS")
-
         binding.btnSignup.setOnClickListener {
             validateData()
         }
@@ -73,9 +67,7 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun firebaseRegister() {
-
         progressDialog.show()
-
         firebaseAuth.createUserWithEmailAndPassword(email, password)
                 .addOnSuccessListener {
                     progressDialog.dismiss()

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_home"
+        android:title="Home"
+        android:icon="@drawable/ic_baseline_home_24" />
+
+    <item
+        android:id="@+id/nav_position"
+        android:title="Position"
+        android:icon="@drawable/ic_baseline_call_split_24" />
+
+    <item
+        android:id="@+id/nav_battery"
+        android:title="Battery"
+        android:icon="@drawable/ic_baseline_battery_full_24" />
+
+    <item
+        android:id="@+id/nav_setting"
+        android:title="Settings"
+        android:icon="@drawable/ic_baseline_settings_24" />
+
+</menu>

@@ -43,6 +43,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawablePadding="17dp"
+                android:inputType="textPersonName"
+                android:textColor="@color/white"
                 android:paddingStart="20dp"
                 android:hint="Masukkan Nama Lengkap" />
 
@@ -64,6 +66,8 @@
                 android:id="@+id/usernameEdt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:textColor="@color/white"
                 android:drawablePadding="17dp"
                 android:paddingStart="20dp"
                 android:hint="Masukkan Username" />
@@ -87,6 +91,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawablePadding="17dp"
+                android:textColor="@color/white"
+                android:inputType="textEmailAddress"
                 android:paddingStart="20dp"
                 android:hint="Masukkan Email" />
 
@@ -100,6 +106,8 @@
             app:boxStrokeColor="@color/white"
             app:hintTextColor="@color/white"
             android:textColorHint="@color/grey"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/white"
             app:hintTextAppearance="@style/TextAppearance.AppCompat"
             android:theme="@style/ThemeOverlay.AppTheme.TextInputEditText.Outlined"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" >
@@ -109,6 +117,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawablePadding="17dp"
+                android:inputType="textPassword"
+                android:textColor="@color/white"
                 android:paddingStart="20dp"
                 android:hint="Masukkan Password" />
 

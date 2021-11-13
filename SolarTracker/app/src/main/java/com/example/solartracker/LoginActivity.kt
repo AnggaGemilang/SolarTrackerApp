@@ -1,11 +1,15 @@
 package com.example.solartracker
 
+import android.app.AlertDialog
 import android.app.ProgressDialog
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Patterns
+import android.widget.ProgressBar
 import android.widget.Toast
 import com.example.solartracker.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -34,7 +38,7 @@ class LoginActivity : AppCompatActivity() {
             validateData()
         }
 
-        progressDialog = ProgressDialog(this)
+        progressDialog = ProgressDialog(this, R.style.MyAlertDialogStyle)
         progressDialog.setTitle("Please Wait")
         progressDialog.setMessage("Logging In...")
         progressDialog.setCanceledOnTouchOutside(false)
