@@ -1,12 +1,12 @@
 package com.example.solartracker
 
+import android.app.AlertDialog
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.solartracker.databinding.ActivityLoginBinding
 import com.example.solartracker.databinding.ActivityProfileBinding
-import com.example.solartracker.databinding.FragmentBatteryBinding
 import com.google.firebase.auth.FirebaseAuth
 
 class ProfileActivity : AppCompatActivity() {
@@ -26,7 +26,21 @@ class ProfileActivity : AppCompatActivity() {
 
         firebaseAuth = FirebaseAuth.getInstance()
 
-//        firebaseAuth.signOut()
+        binding.btnLogout.setOnClickListener {
+
+            AlertDialog.Builder(this)
+                    .setTitle("Perhatian")
+                    .setMessage("Apakah Anda Yakin?")
+                    .setCancelable(false)
+                    .setPositiveButton("Yes"){ _, _ ->
+                        firebaseAuth.signOut()
+                        startActivity(Intent(this, MainActivity::class.java))
+                        finish()
+                    }
+                    .setNegativeButton("No", null)
+                    .create()
+                    .show()
+        }
 
     }
 

@@ -10,14 +10,10 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
-import androidx.viewpager.widget.ViewPager
-import com.example.solartracker.adapter.OnboardingAdapter
-import com.example.solartracker.data.OnboardingData
 import com.example.solartracker.databinding.ActivityMainBinding
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.tabs.TabLayout
 import com.google.firebase.auth.FirebaseAuth
 
+@Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -98,7 +94,6 @@ class MainActivity : AppCompatActivity() {
     private fun checkUser() {
         val firebaseUser = firebaseAuth.currentUser
         if(firebaseUser == null){
-            Toast.makeText(this, "Logout Successfully", Toast.LENGTH_LONG).show()
             startActivity(Intent(this, LoginActivity::class.java))
         }
     }

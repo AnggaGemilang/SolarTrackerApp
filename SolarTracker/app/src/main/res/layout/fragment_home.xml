@@ -3,11 +3,197 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".HomeFragment">
 
-    <TextView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Home Fragment" />
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/black_750" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:orientation="vertical"
+                android:paddingHorizontal="30dp" >
+
+                <TextView
+                    android:id="@+id/hello"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hello, Suwarko"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="10dp"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:id="@+id/description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:text="9 September 2021, 12:00"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="175dp"
+                app:cardElevation="15dp"
+                app:cardCornerRadius="10dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardUseCompatPadding="true"
+                android:clickable="true"
+                android:layout_marginHorizontal="12dp"
+                android:backgroundTint="@color/white"
+                android:outlineSpotShadowColor="@color/black_40t"
+                android:focusable="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="-88dp"
+                android:columnCount="2"
+                android:rowCount="3"
+                android:paddingLeft="20dp"
+                android:paddingTop="85dp"
+                android:paddingRight="20dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/rounded_bottom_left_right" >
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="188dp"
+                    android:layout_row="0"
+                    android:layout_column="0"
+                    android:layout_columnWeight="1"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardUseCompatPadding="true"
+                    app:cardElevation="10dp"
+                    android:outlineSpotShadowColor="@color/black_30t"
+                    app:cardCornerRadius="10dp"
+                    android:focusable="true" >
+
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="188dp"
+                    android:layout_row="0"
+                    android:layout_column="1"
+                    android:layout_columnWeight="1"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardUseCompatPadding="true"
+                    app:cardElevation="10dp"
+                    android:outlineSpotShadowColor="@color/black_30t"
+                    app:cardCornerRadius="10dp"
+                    android:focusable="true" >
+
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="188dp"
+                    android:layout_row="1"
+                    android:layout_column="0"
+                    android:layout_columnWeight="1"
+                    android:clickable="true"
+                    android:layout_marginTop="-10dp"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardUseCompatPadding="true"
+                    app:cardElevation="10dp"
+                    android:outlineSpotShadowColor="@color/black_30t"
+                    app:cardCornerRadius="10dp"
+                    android:focusable="true"  >
+
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="188dp"
+                    android:layout_row="1"
+                    android:layout_column="1"
+                    android:layout_marginTop="-10dp"
+                    android:layout_columnWeight="1"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardUseCompatPadding="true"
+                    app:cardElevation="10dp"
+                    android:outlineSpotShadowColor="@color/black_30t"
+                    app:cardCornerRadius="10dp"
+                    android:focusable="true" >
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="188dp"
+                    android:layout_row="2"
+                    android:layout_column="0"
+                    android:layout_columnWeight="1"
+                    android:layout_marginTop="-10dp"
+                    android:clickable="true"
+                    android:layout_marginBottom="120dp"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardUseCompatPadding="true"
+                    app:cardElevation="10dp"
+                    android:outlineSpotShadowColor="@color/black_30t"
+                    app:cardCornerRadius="10dp"
+                    android:focusable="true" >
+
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="188dp"
+                    android:layout_row="2"
+                    android:layout_column="1"
+                    android:layout_marginTop="-10dp"
+                    android:layout_columnWeight="1"
+                    android:clickable="true"
+                    android:layout_marginBottom="120dp"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardUseCompatPadding="true"
+                    app:cardElevation="10dp"
+                    android:outlineSpotShadowColor="@color/black_30t"
+                    app:cardCornerRadius="10dp"
+                    android:focusable="true" >
+
+
+                </androidx.cardview.widget.CardView>
+
+            </GridLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
 </FrameLayout>

@@ -8,12 +8,11 @@ import android.os.Looper
 import android.util.Log
 import android.view.WindowInsets
 import android.view.WindowManager
-import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
-import com.example.solartracker.databinding.ActivityRegisterBinding
 import com.example.solartracker.databinding.ActivitySplashScreenBinding
 import com.google.firebase.auth.FirebaseAuth
 
+@Suppress("DEPRECATION")
 class SplashScreenActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySplashScreenBinding

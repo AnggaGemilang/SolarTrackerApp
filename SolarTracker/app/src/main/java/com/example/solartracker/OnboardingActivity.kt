@@ -4,14 +4,13 @@ import android.content.Intent
 import android.content.res.ColorStateList
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import androidx.viewpager.widget.ViewPager
-import androidx.viewpager2.widget.ViewPager2
 import com.example.solartracker.adapter.OnboardingAdapter
 import com.example.solartracker.data.OnboardingData
 import com.google.android.material.tabs.TabLayout
 
+@Suppress("DEPRECATION")
 class OnboardingActivity : AppCompatActivity() {
 
     var onBoardingAdapter: OnboardingAdapter? = null
