@@ -16,7 +16,9 @@
         <item name="android:colorAccent">@color/blue</item>
     </style>
 
-
+    <style name="ThemeOverlay.AppTheme.TextInputEditText.Outlined" parent="">
+        <item name="colorControlActivated">@color/white</item>
+    </style>
 
     <style name="ErrorTextAppearance" parent="TextAppearance.AppCompat">
         <item name="android:textColor">@android:color/holo_orange_dark</item>

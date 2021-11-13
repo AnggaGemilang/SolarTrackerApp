@@ -10,13 +10,22 @@ import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
+import com.example.solartracker.databinding.ActivityRegisterBinding
+import com.example.solartracker.databinding.ActivitySplashScreenBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class SplashScreenActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivitySplashScreenBinding
+
+    private lateinit var firebaseAuth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_splash_screen)
+        binding = ActivitySplashScreenBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val pg: ProgressBar = findViewById(R.id.progress_bar)
+        firebaseAuth = FirebaseAuth.getInstance()
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             window.insetsController?.hide(WindowInsets.Type.statusBars())
@@ -28,13 +37,13 @@ class SplashScreenActivity : AppCompatActivity() {
         }
 
         var progressStatus = 0
-        pg.max = 100
+        binding.progressBar.max = 100
 
         Thread {
-            while (progressStatus < pg.max) {
+            while (progressStatus < binding.progressBar.max) {
                 progressStatus++
                 Log.d("Progress bar", progressStatus.toString())
-                pg.progress = progressStatus
+                binding.progressBar.progress = progressStatus
                 try {
                     Thread.sleep(50)
                 } catch (e: InterruptedException) {
@@ -42,7 +51,11 @@ class SplashScreenActivity : AppCompatActivity() {
                 }
             }
             Handler(Looper.getMainLooper()).post {
-                startActivity(Intent(this, OnboardingActivity::class.java))
+                if(firebaseAuth.currentUser != null){
+                    startActivity(Intent(this, MainActivity::class.java))
+                } else {
+                    startActivity(Intent(this, OnboardingActivity::class.java))
+                }
             }
         }.start()
     }

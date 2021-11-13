@@ -40,7 +40,6 @@ class OnboardingActivity : AppCompatActivity() {
                 position++
                 onBoardingViewPager!!.currentItem = position
             } else {
-                Log.d("Testing", "asdasd")
                 startActivity(Intent(this, LoginActivity::class.java))
             }
         }
@@ -73,19 +72,13 @@ class OnboardingActivity : AppCompatActivity() {
             override fun onTabReselected(tab: TabLayout.Tab?) {
 
             }
-
         })
-
     }
 
     private fun setOnBoardingViewPagerAdapter(onboardingDataList: List<OnboardingData>){
         onBoardingViewPager = findViewById(R.id.slider)
-
         onBoardingAdapter = OnboardingAdapter(this, onboardingDataList)
-
         onBoardingViewPager!!.adapter = onBoardingAdapter
-
         tabLayout?.setupWithViewPager(onBoardingViewPager)
-
     }
 }

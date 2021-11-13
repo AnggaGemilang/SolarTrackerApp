@@ -32,42 +32,56 @@
             android:text="Solar Tracker." />
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/emailTil"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_marginTop="30dp"
             app:boxStrokeColor="@color/white"
             app:hintTextColor="@color/white"
+            android:textColorHint="@color/grey"
+            app:helperTextEnabled="true"
+            app:helperText="Sabihis"
+            app:helperTextTextColor="@color/blue"
             app:hintTextAppearance="@style/TextAppearance.AppCompat"
+            android:theme="@style/ThemeOverlay.AppTheme.TextInputEditText.Outlined"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" >
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailEdt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingStart="20dp"
                 android:drawablePadding="17dp"
                 android:hint="Masukkan Email" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordTil"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
             android:layout_marginTop="20dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             app:boxStrokeColor="@color/white"
             app:hintTextColor="@color/white"
+            android:textColorHint="@color/grey"
             app:hintTextAppearance="@style/TextAppearance.AppCompat"
-            android:layout_width="match_parent"
-            app:passwordToggleEnabled="true"
-            android:layout_height="wrap_content" >
+            android:theme="@style/ThemeOverlay.AppTheme.TextInputEditText.Outlined"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:passwordToggleEnabled="true" >
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordEdt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:hint="Masukkan Password"
+                android:paddingStart="20dp"
                 android:drawablePadding="17dp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
@@ -96,6 +110,5 @@
         </LinearLayout>
 
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
