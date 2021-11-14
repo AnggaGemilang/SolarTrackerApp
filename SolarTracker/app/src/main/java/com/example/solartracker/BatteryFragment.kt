@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import com.mikhaellopez.circularprogressbar.CircularProgressBar
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -26,6 +28,18 @@ class BatteryFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_battery, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        val progressBar = view.findViewById<CircularProgressBar>(R.id.spinner)
+        val tvSpinner = view.findViewById<TextView>(R.id.tv_spinner)
+
+        progressBar.apply {
+            setProgressWithAnimation(40f, 3000)
+            tvSpinner.text = "40%"
+        }
+
     }
 
     companion object {

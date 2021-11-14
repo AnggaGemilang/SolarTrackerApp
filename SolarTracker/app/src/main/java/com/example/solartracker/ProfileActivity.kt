@@ -6,6 +6,7 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.example.solartracker.databinding.ActivityProfileBinding
 import com.google.firebase.auth.FirebaseAuth
 
@@ -34,6 +35,7 @@ class ProfileActivity : AppCompatActivity() {
                     .setCancelable(false)
                     .setPositiveButton("Yes"){ _, _ ->
                         firebaseAuth.signOut()
+                        Toast.makeText(this, "Logout Successfully", Toast.LENGTH_LONG).show()
                         startActivity(Intent(this, MainActivity::class.java))
                         finish()
                     }

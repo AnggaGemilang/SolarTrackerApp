@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         val homeFragment = HomeFragment()
         val positionFragment = PositionFragment()
         val batteryFragment = BatteryFragment()
-        val settingsFragment = SettingsFragment()
+        val settingsFragment = MyPreferenceFragment()
 
         supportActionBar?.title = "Dashboard"
         supportActionBar!!.setBackgroundDrawable(ColorDrawable(Color.parseColor("#2D2D2D")))
