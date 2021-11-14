@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         val homeFragment = HomeFragment()
         val positionFragment = PositionFragment()
         val batteryFragment = BatteryFragment()
-        val settingsFragment = MyPreferenceFragment()
+        val myPreferenceFragment = MyPreferenceFragment()
 
         supportActionBar?.title = "Dashboard"
         supportActionBar!!.setBackgroundDrawable(ColorDrawable(Color.parseColor("#2D2D2D")))
@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
                     supportActionBar?.title = "Battery"
                 }
                 R.id.nav_setting -> {
-                    makeCurrentFragment(settingsFragment)
+                    makeCurrentFragment(myPreferenceFragment)
                     supportActionBar?.title = "Settings"
                 }
             }
