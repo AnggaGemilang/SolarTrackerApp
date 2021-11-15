@@ -8,20 +8,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.mikhaellopez.circularprogressbar.CircularProgressBar
 
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
 class BatteryFragment : Fragment() {
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private var _binding: BatteryFragment? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,7 +22,6 @@ class BatteryFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
         val progressBar = view.findViewById<CircularProgressBar>(R.id.spinner)
         val tvSpinner = view.findViewById<TextView>(R.id.tv_spinner)
 
@@ -40,16 +30,5 @@ class BatteryFragment : Fragment() {
             tvSpinner.text = "40%"
         }
 
-    }
-
-    companion object {
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            BatteryFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
     }
 }

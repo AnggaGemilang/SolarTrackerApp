@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.util.Patterns
 import android.widget.Toast
-import com.example.solartracker.data.UserData
+import com.example.solartracker.data.User
 import com.example.solartracker.databinding.ActivityRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
@@ -72,7 +72,7 @@ class RegisterActivity : AppCompatActivity() {
                 .addOnSuccessListener {
                     progressDialog.dismiss()
                     val firebaseUser = firebaseAuth.currentUser
-                    firebaseRef.child(firebaseUser!!.uid).setValue(UserData(nama, username, email, password))
+                    firebaseRef.child(firebaseUser!!.uid).setValue(User(nama, username, email, password))
                             .addOnCompleteListener {
                                 Toast.makeText(this, "Account created, $email", Toast.LENGTH_LONG).show()
                                 startActivity(Intent(this, MainActivity::class.java))
