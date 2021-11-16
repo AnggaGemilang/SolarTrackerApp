@@ -23,5 +23,5 @@ void loop() {
   //kirim ke ESP8266  
   ArduinoUno.print(data);
 
-  delay(2000);
+  delay(5000);
 }

@@ -14,7 +14,8 @@ FirebaseData firebaseData;
 
 String arrData[4];  //2 sensor
 
-int val = 0;
+int counterID = 1;
+int statusBaris = false;
 
 void setup() {
 
@@ -43,9 +44,10 @@ void setup() {
 }
 
 void loop() {
-
   if (WiFi.status() == WL_CONNECTED) {
     turnOn();
+
+    hapusData();
     
     String data  = "";
 
@@ -55,35 +57,37 @@ void loop() {
     }
   
     data.trim();
-    Serial.println(data);
 
-    if(data.length() != 0){
-      int index = 0;
+    int index = 0;
     
-      for (int i = 0; i < data.length(); i++){
-        if (data[i] != delimiter){
-          arrData[index] += data[i];
-        } else {
-          index++;        
-        }
+    for (int i = 0; i < data.length(); i++){
+      if (data[i] != delimiter){
+        arrData[index] += data[i];
+      } else {
+        index++;        
       }
-  
-      //tampilkan di serial monitor
-      Serial.println("Sensor 1 : " + arrData[0]);
-      Serial.println("Sensor 2 : " + arrData[1]);
-      Serial.println("Sensor 3 : " + arrData[2]);
-      Serial.println("Sensor 4 : " + arrData[3]);
-    
-      val = random(1, 999999999999999999);
+    }
+
+    if(arrData[0].length() != 0 && arrData[1].length() != 0 && arrData[2].length() != 0 && arrData[3].length() != 0){
+
+      Serial.println(data);
   
       for(int i = 0; i < 4; i++){
-        String destination = "LIGHT_SENSOR/" + String(val) + "/LS" + String(i+1);
+        String destination = "LIGHT_SENSOR/list_data_" + String(counterID) + "/LS" + String(i+1);
         if(Firebase.setString(firebaseData, destination, arrData[i])){
           Serial.println("Value uploaded succesfully");
         } else {
           Serial.println(firebaseData.errorReason());
         }      
       }
+
+      counterID++;
+
+      //tampilkan di serial monitor
+      Serial.println("Sensor 1 : " + arrData[0]);
+      Serial.println("Sensor 2 : " + arrData[1]);
+      Serial.println("Sensor 3 : " + arrData[2]);
+      Serial.println("Sensor 4 : " + arrData[3]);
     
       //reset data
       arrData[0] = "";
@@ -104,4 +108,26 @@ void turnOn() {
 
 void turnOff() {
   digitalWrite(ledPin, LOW);
+}
+
+void hapusData() {
+  if(statusBaris == false){
+    if(counterID == 21){
+      for(int i = 1; i <= 10; i++){
+        String target = "LIGHT_SENSOR/list_data_" + String(i);
+        Firebase.deleteNode(firebaseData, target);
+      }
+      counterID = 1;
+      statusBaris = true;
+    }
+  } else {
+    if(counterID == 11){
+      for(int i = 11; i <= 20; i++){
+        String target = "LIGHT_SENSOR/list_data_" + String(i);
+        Firebase.deleteNode(firebaseData, target);
+      }
+      counterID = 11;
+      statusBaris = false;
+    }        
+  }
 }
