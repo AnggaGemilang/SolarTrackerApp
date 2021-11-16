@@ -1,12 +1,12 @@
 #include <SoftwareSerial.h>
-SoftwareSerial Arduino_SoftSerial (5, 6); //RX,TX
+SoftwareSerial ArduinoUno (5, 6); //RX,TX
 
 void setup() {
   //Open Serial Communication (Arduino-PC)
-  Serial.begin (57600);
+  Serial.begin(57600);
 
   //Open Serial Communication (Arduino-NodeMCU)
-  Arduino_SoftSerial.begin(9600);
+  ArduinoUno.begin(9600);
 }
 
 void loop() {
@@ -21,7 +21,7 @@ void loop() {
   Serial.println(data);
 
   //kirim ke ESP8266  
-  Arduino_SoftSerial.print(data);
-  
-  delay(1000);
+  ArduinoUno.print(data);
+
+  delay(2000);
 }
