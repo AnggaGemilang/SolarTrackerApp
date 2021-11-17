@@ -1,6 +1,8 @@
 #include <ESP8266WiFi.h>
 #include <FirebaseESP8266.h>
 #include <SoftwareSerial.h>
+#include <NTPClient.h>
+#include <WiFiUdp.h>
 SoftwareSerial NodeMcu_SoftSerial (D6, D5); //RX,TX
 
 #define FIREBASE_HOST "solar-tracker-b5cad-default-rtdb.asia-southeast1.firebasedatabase.app"
@@ -11,6 +13,11 @@ SoftwareSerial NodeMcu_SoftSerial (D6, D5); //RX,TX
 #define delimiter '#'
 
 FirebaseData firebaseData;
+
+const long utcOffsetInSeconds = 25200;
+
+WiFiUDP ntpUDP;
+NTPClient timeClient(ntpUDP, "id.pool.ntp.org", utcOffsetInSeconds);
 
 String arrData[4];  //2 sensor
 
@@ -41,6 +48,8 @@ void setup() {
   Serial.print("connected: ");
   Serial.println(WiFi.localIP());
   Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH);
+
+  timeClient.begin();
 }
 
 void loop() {
@@ -69,18 +78,39 @@ void loop() {
     }
 
     if(arrData[0].length() != 0 && arrData[1].length() != 0 && arrData[2].length() != 0 && arrData[3].length() != 0){
-
+      
       Serial.println(data);
+
+      String target = "";
+
+      unsigned long epochTime = timeClient.getEpochTime();
+      struct tm *ptm = gmtime ((time_t *)&epochTime);
+    
+      timeClient.update();
+
+      int monthDay = ptm->tm_mday;
+      int currentMonth = ptm->tm_mon+1;
+      int currentYear = ptm->tm_year+1900;
+    
+      target = "LIGHT_SENSOR/list_data_" + String(counterID) + "/created_at";
+    
+      String currentDate = String(currentYear) + "-" + String(currentMonth) + "-" + String(monthDay) + " " + String(timeClient.getFormattedTime());
+      if(Firebase.setString(firebaseData, target, currentDate)){
+        Serial.println(currentDate + "uploaded succesfully");
+      } else {
+        Serial.println(firebaseData.errorReason());
+      }      
   
       for(int i = 0; i < 4; i++){
-        String destination = "LIGHT_SENSOR/list_data_" + String(counterID) + "/LS" + String(i+1);
-        if(Firebase.setString(firebaseData, destination, arrData[i])){
-          Serial.println("Value uploaded succesfully");
+        target = "LIGHT_SENSOR/list_data_" + String(counterID) + "/LS" + String(i+1);
+        int data = arrData[i].toInt();
+        if(Firebase.setInt(firebaseData, target, data)){
+          Serial.println("LS" + String(i+1) + " uploaded succesfully");        
         } else {
           Serial.println(firebaseData.errorReason());
         }      
       }
-
+      
       counterID++;
 
       //tampilkan di serial monitor
